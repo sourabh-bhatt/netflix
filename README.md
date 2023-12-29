@@ -26,6 +26,8 @@
     - Header 
     - Login
     - Sign Up 
+    - Form Validation
+    - useRef Hook
 
 Note: Adding routing using react router dom version 6.4
 
@@ -44,3 +46,8 @@ Note: Adding routing using react router dom version 6.4
 ## Creating the Sign Up form
 
     - Sign Up form created 
+
+
+## useRef Hook
+
+    - 
