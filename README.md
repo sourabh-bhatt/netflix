@@ -25,6 +25,7 @@
     - Browse
     - Header 
     - Login
+    - Sign Up 
 
 Note: Adding routing using react router dom version 6.4
 
@@ -35,4 +36,6 @@ Note: Adding routing using react router dom version 6.4
 
 ## Creating the Login Form
 
-    - 
+    - Converting sign in form to sign up form
+
+## Creating the Sign Up form
