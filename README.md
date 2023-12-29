@@ -18,3 +18,12 @@
 - NetFlix GPT
     - Search Bar
     - Movie Suggestions
+
+
+## Created Components
+    - Body
+    - Browse
+    - Header 
+    - Login
+
+Note: Adding routing using react router dom version 6.4
