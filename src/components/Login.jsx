@@ -1,14 +1,19 @@
 import { auth } from '../utils/firebase'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
 import { checkValidData } from '../utils/validate';
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 
 const Login = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState(null);
     const [isSignInForm, setIsSignInForm] = useState(true);
+
+    const name = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
     // const name = useRef(null);
@@ -30,10 +35,28 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
-                    console.log(user);
-                    // navigate user to browse page if it sign in
-                    navigate('/browse')
-                    
+
+                    //update the user profile
+
+                    const auth = getAuth();
+                    updateProfile(user, {
+                        displayName: name.current.value, 
+                        photoURL: "https://avatars.githubusercontent.com/u/89153172?v=4"
+                    }).then(() => {
+                        // dispatchign on update
+
+                        const { uid, email, displayName, photoURL } = auth.currentUser;
+                        
+                        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
+
+                        navigate('/browse')
+
+                    }).catch((error) => {
+                        setErrorMessage(error.message)
+
+                    });
+
+
                 })
                 .catch((error) => {
                     const errorCode = error.code;

@@ -30,6 +30,9 @@
     - useRef Hook
     - User Sign Up
     - Redux store using userSlice
+    - Sign Out Added
+    - Profile Added
+    - Name added
 
 Note: Adding routing using react router dom version 6.4
 

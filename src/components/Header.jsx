@@ -1,20 +1,52 @@
+import { useNavigate } from "react-router-dom";
+import { auth } from "../utils/firebase";
+import { signOut } from "firebase/auth";
+import { useSelector } from "react-redux";
 const Header = () => {
+
+  const navigate = useNavigate();
+  const user = useSelector(store => store.user)
+
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      navigate("/")
+    }).catch((error) => {
+      navigate("/error")
+    });
+  }
+  // console.log("User Photo URL:", user.photoURL);
+
   return (
     <>
-        <div className="absolute  w-screen px-8 py- bg-gradient-to-b from-white z-10 flex justify-between">
-            <img className="w-44"
-            src="https://www.whatphone.net/wp-content/uploads/2019/05/Netflix-Logo.png" 
-            alt="Netflix logo" />  
-        </div>
+      <div className="absolute w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-white z-10 flex justify-between items-center">
+        <img
+          className="w-28 sm:w-36 lg:w-44"
+          src="https://www.whatphone.net/wp-content/uploads/2019/05/Netflix-Logo.png"
+          alt="Netflix logo"
+        />
+      </div>
 
-        <div className=" flex ml-[92%] py-6 mt-2">
-          <img className="justify-between z-10 mr-4" src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229" alt="" />
+    {/* if user is signed out then dont load this */}
+      {user && user.photoURL &&
+      <div className="flex justify-end items-center mr-2 sm:mr-4 py-6">
+        <img
+          className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mr-2 sm:mr-4 z-10"
+          // src={user.photoURL}
+          src="https://avatars.githubusercontent.com/u/89153172?v=4"
+          alt="User Photo"
+        />
+        
 
-          <button className="font-bold z-10 px-3 bg-yellow-500 border rounded-lg border-yellow-600 hover:bg-yellow-700 m">Sign Out</button>
-        </div>
 
+        <button onClick={handleSignOut} className="font-bold px-2 py-1 sm:px-3 sm:py-1 lg:px-4 lg:py-2 bg-yellow-500 border rounded-lg border-yellow-600 hover:bg-yellow-700 z-10">
+          Sign Out
+        </button>
+      </div>}
+      
     </>
-  )
-}
+    
+
+  );
+};
 
 export default Header;
