@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { auth } from "../utils/firebase"
 import { onAuthStateChanged } from "firebase/auth"
 import { createBrowserRouter } from "react-router-dom"
+import Error from "./Error"
 import Browse from "./Browse"
 import Login from "./Login"
 import { RouterProvider } from "react-router-dom"
@@ -21,8 +22,13 @@ const Body = () => {
         {
             path: '/browse',
             element: <Browse/>
+        },
+        {
+          path: '/error',
+          element: <Error/>
         }
     ])
+  
 
     // Sign in state change
 
