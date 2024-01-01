@@ -23,7 +23,7 @@ const Login = () => {
         // console.log(password.current.value);
         // console.log(name.current.value);``
 
-        const message = checkValidData(email.current.value, password.current.value);
+        const message = checkValidData(email?.current?.value, password?.current?.value);
         setErrorMessage(message);
 
         if (message) return;
@@ -31,7 +31,7 @@ const Login = () => {
         // Sign In / Sign Up Logic
         if (!isSignInForm) {
             // Sign Up logic
-            createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+            createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
@@ -39,10 +39,12 @@ const Login = () => {
                     //update the user profile
 
                     const auth = getAuth();
+                    
                     updateProfile(user, {
-                        displayName: name.current.value, 
+                        displayName: name?.current?.value, 
                         photoURL: "https://avatars.githubusercontent.com/u/89153172?v=4"
                     }).then(() => {
+
                         // dispatchign on update
 
                         const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -65,7 +67,7 @@ const Login = () => {
                 });
         } else {
             // Sign In Logic
-            signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+            signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
