@@ -4,6 +4,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
+import { LOGO } from "../utils/contansts";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const Header = () => {
       <div className="absolute w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-white z-10 flex justify-between items-center">
         <img
           className="w-28 sm:w-36 lg:w-44"
-          src="https://www.whatphone.net/wp-content/uploads/2019/05/Netflix-Logo.png"
+          src={LOGO}
           alt="Netflix logo"
         />
       </div>

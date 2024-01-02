@@ -6,6 +6,7 @@ import Header from "./Header";
 
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { USER_AVATAR } from '../utils/contansts';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const Login = () => {
                     
                     updateProfile(user, {
                         displayName: name?.current?.value, 
-                        photoURL: "https://avatars.githubusercontent.com/u/89153172?v=4"
+                        photoURL: USER_AVATAR,
                     }).then(() => {
 
                         // dispatchign on update
