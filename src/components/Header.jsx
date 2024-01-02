@@ -22,10 +22,10 @@ const Header = () => {
     
   };
 
-  // 
+  // useEffect
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         dispatch(
@@ -42,11 +42,12 @@ const Header = () => {
         navigate('/')
       }
     });
+
+    return () => unsubscribe(); // component unmounts after completion and unsubscribe onAuthStateChanged
   }, []);
 
   //
 
-  // 
   console.log("User Photo URL:", user?.photoURL);
   return (
     <>
