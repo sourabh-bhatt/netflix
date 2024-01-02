@@ -3,13 +3,13 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, up
 import { checkValidData } from '../utils/validate';
 import { useState, useRef } from "react";
 import Header from "./Header";
-import { useNavigate } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
 const Login = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    
     const [errorMessage, setErrorMessage] = useState(null);
     const [isSignInForm, setIsSignInForm] = useState(true);
 
@@ -51,7 +51,7 @@ const Login = () => {
                         
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
 
-                        navigate('/browse')
+                        
 
                     }).catch((error) => {
                         setErrorMessage(error.message)
@@ -71,8 +71,8 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user; 
-                    console.log(user);
-                    navigate("/browse")
+                    // console.log(user);
+                    // navigate("/browse")
                 })
                 .catch((error) => {
                     const errorCode = error.code;
