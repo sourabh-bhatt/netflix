@@ -7,3 +7,13 @@ export const LOGIN_BG = "https://assets.nflxext.com/ffe/siteui/vlv3/c31c3123-3df
 
 // Adding alt attribute correctly
 export const altText = 'background image home page';
+
+// Adding tmdb api
+
+export const API_OPTIONS = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YmE4YTlkMmQ5MzExZGM2NTdkZGZmYjFkNjVhYmM3ZiIsInN1YiI6IjY1OTUzMjZlMGU2NGFmMGY5ZDhjMTkwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HfhcsGmfI33IV9pRt_UBI_H8kLG14ctRwdVI1ZIpKOs'
+    }
+  };
