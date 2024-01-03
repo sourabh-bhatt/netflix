@@ -11,7 +11,7 @@ const MainContainer = () => {
     if(movies === null) return;  // if(!movies) return;
 
     const mainMovie = movies[0];
-    console.log(mainMovie);
+    // console.log(mainMovie);
 
     // Creating video title
 
