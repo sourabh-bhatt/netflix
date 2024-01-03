@@ -8,7 +8,7 @@ const VideoBackground = ({ movieId }) => {
 
     // using custom hook for movie trailer
 
-    useMovieTrailer();
+    useMovieTrailer(movieId);
 
     return (
         <>
