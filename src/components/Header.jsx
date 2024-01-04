@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/contansts";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -38,8 +39,13 @@ const Header = () => {
       }
     });
 
+    
     return () => unsubscribe(); // Unsubscribe onAuthStateChanged when component unmounts
   }, []);
+  
+  const handleGPTSearchClick = () => {
+    dispatch(toggleGptSearchView())
+  }
 
   return (
     <header className="fixed w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-black  z-50 flex justify-between items-center">
@@ -53,7 +59,14 @@ const Header = () => {
             src={user.photoURL}
             alt="User Photo"
           />
-          <button className="font-bold px-2 py-1 sm:px-3 sm:py-1 lg:px-4 lg:py-2 bg-green-500 border rounded-lg hover:bg-green-700 mr-3">GPT Search</button>
+
+          <button 
+          className="font-bold px-2 py-1 sm:px-3 sm:py-1 lg:px-4 lg:py-2 bg-green-500 border rounded-lg hover:bg-green-700 mr-3" 
+          onClick={handleGPTSearchClick}
+          >
+          GPT Search
+          </button>
+
           <button
             onClick={handleSignOut}
             className="font-bold px-2 py-1 sm:px-3 sm:py-1 lg:px-4 lg:py-2 bg-yellow-500 border rounded-lg border-yellow-600 hover:bg-yellow-700 z-10"
