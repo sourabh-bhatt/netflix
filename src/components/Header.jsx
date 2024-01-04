@@ -13,6 +13,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store)=> store.gpt.showGptSearch)
 
   const handleSignOut = () => {
     signOut(auth)
@@ -69,7 +70,8 @@ const Header = () => {
 
           {/* Languages Selection */}
 
-          {/* Languages Selection */}
+          
+        {showGptSearch && (
           <div className="relative">
             <select onChange={handleLangaugeChange} className="appearance-none p-2 pr-8 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-gray-400">
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -95,13 +97,14 @@ const Header = () => {
               />
             </svg>
           </div>
+        )}
 
 
           <button
             className="font-bold px-3 py-1 sm:px-4 sm:py-2 lg:px-6 lg:py-3 bg-green-500 border border-green-600 rounded-lg hover:bg-green-700"
             onClick={handleGPTSearchClick}
           >
-            GPT Search
+            {showGptSearch ? 'Home' : 'GPT Search'}
           </button>
 
           <button
