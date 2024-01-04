@@ -21,3 +21,18 @@ export const API_OPTIONS = {
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500"
 
 // https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: 'en', name: 'English' },
+  { identifier: 'hi', name: 'Hindi' },
+  { identifier: 'gu', name: 'Gujarati' },
+  { identifier: 'te', name: 'Telugu' },
+  { identifier: 'mr', name: 'Marathi' },
+  { identifier: 'ta', name: 'Tamil' },
+  { identifier: 'kn', name: 'Kannada' },
+  { identifier: 'bn', name: 'Bengali' },
+  { identifier: 'ml', name: 'Malayalam' },
+  { identifier: 'pa', name: 'Punjabi' },
+  { identifier: 'sa', name: 'Sanskrit' },
+  { identifier: 'bh', name: 'Maithili' }
+];
