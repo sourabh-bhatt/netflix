@@ -49,3 +49,9 @@ _Note: Adding routing using react router dom version 6.4_
 - Sign Up form created 
 ### Utilizing useRef Hook
 - Enhancing form functionality
+
+### Adding open ai api key
+
+- key 
+- npm install --save openai
+- 
