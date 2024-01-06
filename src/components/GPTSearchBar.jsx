@@ -3,11 +3,21 @@ import lang from "../utils/languageConstants";
 import { useRef, useState } from "react";
 import openai from "../utils/openai";
 import Error from "./Error";
+import { API_OPTIONS } from "../utils/contansts";
 
 const GPTSearchBar = () => {
   const langKey = useSelector(store => store?.config?.lang);
   const [error, setError] = useState(null);
   const searchText = useRef(null);
+
+  // Fetching movie:
+      const searchMovieTMDB = async(movie) => {
+        const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1",API_OPTIONS)
+
+        const json = await data.json();
+
+        return json.results;
+      }
 
   const handleGPTSearchClick = async () => {
     try {
@@ -25,6 +35,12 @@ const GPTSearchBar = () => {
 
       console.log(gptResults.choices?.[0]?.message?.content);
       const gptMovies = gptResults.choices?.[0]?.message?.content.split(',')
+
+      const promiseArrray =  gptMovies.map((movie) => searchMovieTMDB(movie));
+      const tmdbResults = await Promise.all(promiseArrray)
+      console.log(tmdbResults);
+
+      
 
     } catch (error) {
       console.error("Error occurred while fetching data from OpenAI:", error.message);
