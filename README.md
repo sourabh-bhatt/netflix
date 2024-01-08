@@ -55,3 +55,8 @@ _Note: Adding routing using react router dom version 6.4_
 - key 
 - npm install --save openai
 - 
+
+# Why?? Redux 
+
+- Prop drilling avoid
+- pridictable  

@@ -14,9 +14,8 @@ const Body = () => {
       path: '/browse',
       element: <Browse />
     },
-    
     {
-      path: '/movieError',
+      path: '/browse/movieError',
       element: <MovieError/>
     },
     {
@@ -31,3 +30,9 @@ const Body = () => {
 };
 
 export default Body;
+
+// // Intent
+// {
+//   path: '/browse/movieError',
+//   element: <MovieError/>
+// }

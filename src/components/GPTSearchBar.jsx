@@ -2,14 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import { useRef, useState } from "react";
 import openai from "../utils/openai";
-import Error from "./Error";
+// import Error from "./Error";
 import { API_OPTIONS } from "../utils/contansts";
 import { addGptMovieResult } from "../utils/gptSlice";
+import MovieError from './MovieError'
+import { useNavigate } from "react-router-dom";
 
 const GPTSearchBar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const langKey = useSelector(store => store?.config?.lang);
-  const [error, setError] = useState(null);
   const searchText = useRef(null);
 
   // Fetching movie:
@@ -22,6 +24,8 @@ const GPTSearchBar = () => {
       }
 
   const handleGPTSearchClick = async () => {
+
+
     try {
       const gptQuery = "Act as a movie recommendation system and suggest some movies for the query: " + searchText?.current?.value + " Only give me names of 5 movies, comma separated like the example result given ahead: Example Result: Rebel Moon: Part One - A Child of Fire, Wonka, Leave the World Behind, The Iron Claw , Maestro"
 
@@ -31,9 +35,10 @@ const GPTSearchBar = () => {
       });
 
       if (!gptResults.choices || gptResults.choices.length === 0) {
-        setError('No movie recommendations found. Please try again.');
+        navigate('/browser/movieError');
         return;
       }
+
 
       console.log(gptResults.choices?.[0]?.message?.content);
       const gptMovies = gptResults.choices?.[0]?.message?.content.split(',')
@@ -42,18 +47,18 @@ const GPTSearchBar = () => {
       const tmdbResults = await Promise.all(promiseArrray)
       console.log(tmdbResults);
 
-      dispatch(addGptMovieResult({movieNames: gptMovies, movieResults: tmdbResults}))
       
+      dispatch(addGptMovieResult({movieNames: gptMovies, movieResults: tmdbResults}))      
 
     } catch (error) {
       console.error("Error occurred while fetching data from OpenAI:", error.message);
-      setError('An error occurred while fetching movie recommendations. Please try again later.');
+      navigate('/browse/movieError');
+      return;
     }
   }
 
   return (
     <div className="relative">
-      {error ? <Error /> : (
         <div className="pt-12 md:pt-20 lg:pt-32 flex justify-center absolute top-0 w-full z-10">
           <form onSubmit={(e) => e.preventDefault()} className="bg-black w-full lg:w-1/2 max-w-screen-lg grid grid-cols-1 lg:grid-cols-12 gap-4 border-2 border-green-500">
             <input
@@ -67,7 +72,6 @@ const GPTSearchBar = () => {
             </button>
           </form>
         </div>
-      )}
     </div>
   );
 };

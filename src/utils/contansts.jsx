@@ -44,3 +44,5 @@ export const SUPPORTED_LANGUAGES = [
 // new
 
 export const OPENAI_API_KEY = "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";
+
+// export const OPENAI_API_KEY = "sk-5e5NFnoin3HhHC0kblcDT3BlbkFJotuuTrxuVEjQ2lSQRL8";
