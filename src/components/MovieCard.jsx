@@ -1,6 +1,7 @@
 import { IMG_CDN_URL } from "../utils/contansts";
 
 const MovieCard = ({ posterPath }) => {
+    if(!posterPath) return null;
     return (
         <div className="w-48 pr-2 ">
             {posterPath && (

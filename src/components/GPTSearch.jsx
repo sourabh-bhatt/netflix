@@ -6,7 +6,7 @@ const GPTSearch = () => {
   return (
     <>
         <h1>
-        <div className="-z-10" style={{ position: 'absolute', top: 0, left: 0 }}>
+        <div className="-z-10" style={{ position: 'fixed', top: 0, left: 0 }}>
                 <img
                     src={LOGIN_BG} alt={altText}
                     style={{ width: '100%', height: '100%' }}

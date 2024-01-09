@@ -37,12 +37,7 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: 'bh', name: 'Maithili' }
 ];
 
-// export const OPENAI_API_KEY = "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";
 
-// export const OPENAI_API_KEY = "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"
-
-// new
 
 export const OPENAI_API_KEY = "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";
 
-// export const OPENAI_API_KEY = "sk-5e5NFnoin3HhHC0kblcDT3BlbkFJotuuTrxuVEjQ2lSQRL8";
