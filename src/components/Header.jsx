@@ -57,7 +57,9 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-black to-gray-800 z-50 flex justify-between items-center">
+    
+    
+    <header className="fixed w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-black to-gray-800 z-50 flex flex-col md:flex-row justify-between items-center">
       <img className="w-28 sm:w-36 lg:w-44" src={LOGO} alt="Netflix logo" />
 
       {user && user.photoURL && (
@@ -120,4 +122,8 @@ const Header = () => {
 };
 
 export default Header;
+
+// changes: {/* <header className="fixed w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-black to-gray-800 z-50 flex flex-col md:flex-row justify-between items-center"> */}
+
+{/* <img className="w-28 sm:w-36 lg:w-44" src={LOGO} alt="Netflix logo" /> */}
 

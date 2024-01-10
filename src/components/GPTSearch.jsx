@@ -3,18 +3,18 @@ import GPTMovieSuggestions from "./GPTMovieSuggestions"
 import GPTSearchBar from "./GPTSearchBar"
 
 const GPTSearch = () => {
+
   return (
     <>
-        <h1>
-        <div className="-z-10" style={{ position: 'fixed', top: 0, left: 0 }}>
-                <img
-                    src={LOGIN_BG} alt={altText}
-                    style={{ width: '100%', height: '100%' }}
-                />
-            </div>
-            <GPTSearchBar/>
-            <GPTMovieSuggestions/>
-        </h1>
+      <div className="fixed -z-10">
+        <img className="h-screen w-full object-cover fixed" src={LOGIN_BG} alt={altText} />
+      </div>
+      {/* pt-[30] md:p-0 */}
+      <div className=""> 
+        <GPTSearchBar />
+        <GPTMovieSuggestions />
+      </div>
+
     </>
   )
 }

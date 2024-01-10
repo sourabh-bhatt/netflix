@@ -58,21 +58,39 @@ const GPTSearchBar = () => {
   }
 
   return (
-    <div className="relative">
-        <div className="pt-12 md:pt-20 lg:pt-32 flex justify-center absolute top-0 w-full z-10">
-          <form onSubmit={(e) => e.preventDefault()} className="bg-black w-full lg:w-1/2 max-w-screen-lg grid grid-cols-1 lg:grid-cols-12 gap-4 border-2 border-green-500">
-            <input
+
+    <div className="pt-[39%] md:pt-[10%] flex justify-center">
+      <form 
+      onSubmit={(e) => e.preventDefault()} 
+      className="bg-black w-full md:w-1/2 max-w-screen-lg grid grid-cols-1 lg:grid-cols-12 gap-4 border-2 border-green-500">
+             <input
               type="text"
-              className="p-3 md:p-4 col-span-12 lg:col-span-9"
-              placeholder={lang[langKey]?.gptSearchPlaceholder || 'What would you like to see today!!'}
-              ref={searchText}
-            />
-            <button onClick={handleGPTSearchClick} className="py-2 px-3 md:px-4 col-span-12 lg:col-span-3 bg-red-700 text-white rounded-lg mt-2 lg:mt-0">
-              {lang[langKey]?.search}
+            className="p-3 md:p-4 col-span-12 lg:col-span-9"
+            placeholder={lang[langKey]?.gptSearchPlaceholder || 'What would you like to see today!!'}
+            ref={searchText}
+          />
+         <button onClick={handleGPTSearchClick} className="py-2 px-3 md:px-4 col-span-12 lg:col-span-3 bg-red-700 text-white rounded-lg mt-2 lg:mt-0">
+            {lang[langKey]?.search}
             </button>
           </form>
-        </div>
     </div>
+
+
+    // <div className="relative">
+    //     <div className="pt-12 md:pt-20 lg:pt-32 flex justify-center absolute top-0 w-full z-10">
+    //       <form onSubmit={(e) => e.preventDefault()} className="bg-black w-full lg:w-1/2 max-w-screen-lg grid grid-cols-1 lg:grid-cols-12 gap-4 border-2 border-green-500">
+    //         <input
+    //           type="text"
+    //           className="p-3 md:p-4 col-span-12 lg:col-span-9"
+    //           placeholder={lang[langKey]?.gptSearchPlaceholder || 'What would you like to see today!!'}
+    //           ref={searchText}
+    //         />
+    //         <button onClick={handleGPTSearchClick} className="py-2 px-3 md:px-4 col-span-12 lg:col-span-3 bg-red-700 text-white rounded-lg mt-2 lg:mt-0">
+    //           {lang[langKey]?.search}
+    //         </button>
+    //       </form>
+    //     </div>
+    // </div>
   );
 };
 
