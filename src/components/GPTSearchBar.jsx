@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import openai from "../utils/openai";
-// import Error from "./Error";
 import { API_OPTIONS } from "../utils/contansts";
 import { addGptMovieResult } from "../utils/gptSlice";
-import MovieError from './MovieError'
 import { useNavigate } from "react-router-dom";
 
 const GPTSearchBar = () => {

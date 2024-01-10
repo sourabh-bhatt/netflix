@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/contansts";
 import { toggleGptSearchView } from "../utils/gptSlice";
-import lang from "../utils/languageConstants";
+
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
