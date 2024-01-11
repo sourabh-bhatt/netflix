@@ -31,8 +31,3 @@ const Body = () => {
 
 export default Body;
 
-// // Intent
-// {
-//   path: '/browse/movieError',
-//   element: <MovieError/>
-// }
