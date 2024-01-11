@@ -42,11 +42,16 @@ To enrich the user experience, the project integrates OpenAI API for advanced fu
 
 ## Output Snapshots
 
-### Desktop
-![Desktop](desktop_snapshot.png)
+## Mobile - Responsive
+<img src="./src/assets/Responsive-1.png" alt="Desktop" width="200" height="auto">
+<img src="./src/assets/Responsive-2.png" alt="Responsive 2" width="200" height="">, 
+<img src="./src/assets/Responsive-3.png" alt="Responsive 3" width="200" height="">,
 
-### Responsive
-![Responsive](responsive_snapshot.png)
+## Desktop - Responsive
+<img src="./src/assets/Responsive-4.png" alt="Responsive 4" width="200" height="auto">, 
+<img src="./src/assets/Responsive-5.png" alt="Responsive 5" width="200" height="auto">, 
+<img src="./src/assets/Responsive-6.png" alt="Responsive 6" width="200" height="auto">, 
+<img src="./src/assets/Responsive-7.png" alt="Responsive 7" width="200" height="auto">
 
 ## Learnings
 This project has been a valuable learning experience, providing insights into several key aspects of software development:
