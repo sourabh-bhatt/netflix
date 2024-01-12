@@ -68,9 +68,9 @@ The primary aim of the Netflix GPT project is to provide users with a seamless a
 
 ## My Details
 - **Name**: Sourabh Bhatt
-- **LinkedIn**: [Sourabh Bhatt LinkedIn](https://linkedin.com/in/sourabh-bhatt)
-- **Twitter**: [Sourabh Bhatt Twitter](https://twitter.com/sourabh__bhatt)
-- **GitHub**: [Sourabh Bhatt GitHub](https://github.com/sourabh-bhatt)
-- **Hashnode**: [Sourabh Bhatt Hashnode](https://sourbhatt.hashnode.dev)
+- [ LinkedIn](https://linkedin.com/in/sourabh-bhatt)
+- [ Twitter](https://twitter.com/sourabh__bhatt)
+-  [ GitHub](https://github.com/sourabh-bhatt)
+- [ Hashnode](https://sourbhatt.hashnode.dev)
 
 Feel free to explore the project and reach out for any further inquiries or collaborations.
