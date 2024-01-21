@@ -1,6 +1,7 @@
 # Netflix GPT - Project Overview
 
 ## Tech Stack
+
 The Netflix GPT project utilizes a robust tech stack to ensure a seamless user experience:
 
 - **React JS**: A powerful JavaScript library for building user interfaces, providing a dynamic and efficient front-end.
@@ -9,6 +10,7 @@ The Netflix GPT project utilizes a robust tech stack to ensure a seamless user e
 - **React-Redux Toolkit**: The chosen state management tool for efficient state handling in complex applications.
 
 ## Features
+
 The project incorporates a comprehensive authentication system with the following features:
 
 - **Sign In/Sign Up Form**: Intuitive and user-friendly forms for a smooth authentication process.
@@ -24,17 +26,21 @@ _Note: React Router Dom v6.4 is employed for efficient routing._
 ## Development Progress
 
 ### Creating the Login Form
+
 The project's development progress is detailed and structured, starting with the creation of the login form.
 
 - **Converting Sign-In Form to Sign-Up Form**: An iterative approach to enhance form functionality.
 
 ### Creating the Sign-Up Form
+
 A dedicated section for the creation of the Sign-Up form, ensuring a complete authentication solution.
 
 ### Utilizing useRef Hook
+
 The project leverages the useRef hook for an enhanced form functionality, contributing to a more efficient user experience.
 
 ### Adding OpenAI API Key
+
 To enrich the user experience, the project integrates OpenAI API for advanced functionalities.
 
 - **Key Configuration**: Securely adding the OpenAI API key.
@@ -43,17 +49,20 @@ To enrich the user experience, the project integrates OpenAI API for advanced fu
 ## Output Snapshots
 
 ## Mobile - Responsive
+
 <img src="./src/assets/Responsive-1.png" alt="Desktop" width="200" height="auto">
 <img src="./src/assets/Responsive-2.png" alt="Responsive 2" width="200" height="">, 
 <img src="./src/assets/Responsive-3.png" alt="Responsive 3" width="200" height="">,
 
 ## Desktop - Responsive
-<img src="./src/assets/Responsive-4.png" alt="Responsive 4" width="200" height="auto">, 
-<img src="./src/assets/Responsive-5.png" alt="Responsive 5" width="200" height="auto">, 
-<img src="./src/assets/Responsive-6.png" alt="Responsive 6" width="200" height="auto">, 
+
+<img src="./src/assets/Responsive-4.png" alt="Responsive 4" width="200" height="auto">,
+<img src="./src/assets/Responsive-5.png" alt="Responsive 5" width="200" height="auto">,
+<img src="./src/assets/Responsive-6.png" alt="Responsive 6" width="200" height="auto">,
 <img src="./src/assets/Responsive-7.png" alt="Responsive 7" width="200" height="auto">
 
 ## Learnings
+
 This project has been a valuable learning experience, providing insights into several key aspects of software development:
 
 - **Tech Stack Integration**: Successfully integrating technologies like React, Tailwind CSS, and Vite for a cohesive development environment.
@@ -64,13 +73,15 @@ This project has been a valuable learning experience, providing insights into se
 - **Development Workflow**: Utilizing the Vite Bundler for a fast and efficient development workflow.
 
 ## Project Aim
+
 The primary aim of the Netflix GPT project is to provide users with a seamless and intelligent streaming experience. By integrating AI for movie recommendations and ensuring a user-friendly authentication system, the project aims to deliver a top-notch streaming platform.
 
 ## My Details
+
 - **Name**: Sourabh Bhatt
 - [ LinkedIn](https://linkedin.com/in/sourabh-bhatt)
 - [ Twitter](https://twitter.com/sourabh__bhatt)
--  [ GitHub](https://github.com/sourabh-bhatt)
+- [ GitHub](https://github.com/sourabh-bhatt)
 - [ Hashnode](https://sourbhatt.hashnode.dev)
 
 Feel free to explore the project and reach out for any further inquiries or collaborations.

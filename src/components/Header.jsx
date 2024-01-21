@@ -1,32 +1,32 @@
-import { useNavigate } from "react-router-dom";
-import { auth } from "../utils/firebase";
-import { signOut, onAuthStateChanged } from "firebase/auth";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO, SUPPORTED_LANGUAGES } from "../utils/contansts";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { useNavigate } from 'react-router-dom'
+import { auth } from '../utils/firebase'
+import { signOut, onAuthStateChanged } from 'firebase/auth'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { addUser, removeUser } from '../utils/userSlice'
+import { LOGO, SUPPORTED_LANGUAGES } from '../app.constants'
+import { toggleGptSearchView } from '../utils/gptSlice'
 
-import { changeLanguage } from "../utils/configSlice";
+import { changeLanguage } from '../utils/configSlice'
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const user = useSelector((store) => store.user);
-  const showGptSearch = useSelector((store)=> store.gpt.showGptSearch)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const user = useSelector((store) => store.user)
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch)
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => { })
+      .then(() => {})
       .catch((error) => {
-        navigate("/error");
-      });
-  };
+        navigate('/error')
+      })
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, email, displayName, photoURL } = user;
+        const { uid, email, displayName, photoURL } = user
         dispatch(
           addUser({
             uid,
@@ -34,17 +34,16 @@ const Header = () => {
             displayName,
             photoURL,
           })
-        );
-        navigate("/browse");
+        )
+        navigate('/browse')
       } else {
-        dispatch(removeUser());
-        navigate("/");
+        dispatch(removeUser())
+        navigate('/')
       }
-    });
+    })
 
-
-    return () => unsubscribe(); // Unsubscribe onAuthStateChanged when component unmounts
-  }, []);
+    return () => unsubscribe() // Unsubscribe onAuthStateChanged when component unmounts
+  }, [])
 
   const handleGPTSearchClick = () => {
     dispatch(toggleGptSearchView())
@@ -53,12 +52,10 @@ const Header = () => {
   // Language Selection
 
   const handleLangaugeChange = (e) => {
-    dispatch(changeLanguage(e.target.value));
+    dispatch(changeLanguage(e.target.value))
   }
 
   return (
-    
-    
     <header className="fixed w-full px-4 sm:px-8 py-2 bg-gradient-to-b from-black to-black z-50 flex flex-col md:flex-row justify-between items-center">
       <img className="w-28 sm:w-36 lg:w-44" src={LOGO} alt="Netflix logo" />
 
@@ -72,35 +69,36 @@ const Header = () => {
 
           {/* Languages Selection */}
 
-          
-        {showGptSearch && (
-          <div className="relative">
-            <select onChange={handleLangaugeChange} className="appearance-none p-2 pr-8 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-gray-400">
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
-            <svg
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-white"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 9L12 15L18 9"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        )}
-
+          {showGptSearch && (
+            <div className="relative">
+              <select
+                onChange={handleLangaugeChange}
+                className="appearance-none p-2 pr-8 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-gray-400"
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+              <svg
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-white"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          )}
 
           <button
             className="font-bold px-3 py-1 sm:px-4 sm:py-2 lg:px-6 lg:py-3 bg-green-500 border border-green-600 rounded-lg hover:bg-green-700"
@@ -118,9 +116,7 @@ const Header = () => {
         </div>
       )}
     </header>
-  );
-};
+  )
+}
 
-export default Header;
-
-
+export default Header

@@ -1,33 +1,30 @@
-import { useSelector } from "react-redux";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies"
-import usePopularMovies from "../hooks/usePopularMovies";
-import GPTSearch from "./GPTSearch";
-import Header from "./Header"
-import MainContainer from "./MainContainer";
-import SecondaryContainer from "./SecondaryContainer";
+import { useSelector } from 'react-redux'
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import usePopularMovies from '../hooks/usePopularMovies'
+import GPTSearch from './GPTSearch'
+import Header from './Header'
+import MainContainer from './MainContainer'
+import SecondaryContainer from './SecondaryContainer'
 
 const Browse = () => {
-
   // Calling the custom hook
 
-  const showGptSearch = useSelector(store => store?.gpt?.showGptSearch)
+  const showGptSearch = useSelector((store) => store?.gpt?.showGptSearch)
 
-  useNowPlayingMovies();
-  usePopularMovies();
+  useNowPlayingMovies()
+  usePopularMovies()
 
   return (
     <>
       <Header />
-      {
-        showGptSearch ? <GPTSearch /> : (
-          <>
-            <MainContainer />
-            <SecondaryContainer />
-          </>
-        )
-      }
-
-
+      {showGptSearch ? (
+        <GPTSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </>
   )
 }

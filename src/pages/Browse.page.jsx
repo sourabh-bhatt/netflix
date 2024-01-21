@@ -1,10 +1,12 @@
 import { LOGIN_BG, altText } from '../app.constants'
-import GPTMovieSuggestions from './GPTMovieSuggestions'
-import GPTSearchBar from './GPTSearchBar'
+import GPTMovieSuggestions from '../components/GPTMovieSuggestions'
+import GPTSearchBar from '../components/GPTSearchBar'
+import Header from '../components/Header'
 
-const GPTSearch = () => {
+const BrowsePage = () => {
   return (
     <>
+      <Header />
       <div className="fixed -z-10">
         <img
           className="h-screen w-full object-cover fixed"
@@ -20,4 +22,4 @@ const GPTSearch = () => {
   )
 }
 
-export default GPTSearch
+export default BrowsePage

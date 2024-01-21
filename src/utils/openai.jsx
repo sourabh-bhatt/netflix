@@ -6,12 +6,12 @@
 
 // export default openai;
 
-import OpenAI from 'openai';
-import { OPENAI_API_KEY } from './contansts';
+import OpenAI from 'openai'
+import { OPENAI_API_KEY } from './../app.constants'
 
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true
-});
+  dangerouslyAllowBrowser: true,
+})
 
-export default openai;
+export default openai
