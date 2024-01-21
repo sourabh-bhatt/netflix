@@ -7,8 +7,6 @@ import MainContainer from './MainContainer'
 import SecondaryContainer from './SecondaryContainer'
 
 const Browse = () => {
-  // Calling the custom hook
-
   const showGptSearch = useSelector((store) => store?.gpt?.showGptSearch)
 
   useNowPlayingMovies()

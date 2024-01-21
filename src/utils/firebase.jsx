@@ -1,12 +1,9 @@
-import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
+import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 const firebaseConfig = {
-  apiKey: 'AIzaSyDvNzD2pSbgAlYxXaF1o8OR0n5FXrbQRHA',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: 'netfliixxgpt.firebaseapp.com',
   projectId: 'netfliixxgpt',
   storageBucket: 'netfliixxgpt.appspot.com',

@@ -7,23 +7,17 @@ export const USER_AVATAR =
 export const LOGIN_BG =
   'https://assets.nflxext.com/ffe/siteui/vlv3/c31c3123-3df7-4359-8b8c-475bd2d9925d/15feb590-3d73-45e9-9e4a-2eb334c83921/IN-en-20231225-popsignuptwoweeks-perspective_alpha_website_large.jpg'
 
-// Adding alt attribute correctly
-export const altText = 'background image home page'
+export const ALT_TEXT = 'background image home page'
 
-// Adding tmdb api
-
-export const API_OPTIONS = {
+export const TMDB_API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YmE4YTlkMmQ5MzExZGM2NTdkZGZmYjFkNjVhYmM3ZiIsInN1YiI6IjY1OTUzMjZlMGU2NGFmMGY5ZDhjMTkwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HfhcsGmfI33IV9pRt_UBI_H8kLG14ctRwdVI1ZIpKOs',
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
   },
 }
 
 export const IMG_CDN_URL = 'https://image.tmdb.org/t/p/w500'
-
-// https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
 
 export const SUPPORTED_LANGUAGES = [
   { identifier: 'en', name: 'English' },
@@ -39,6 +33,3 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: 'sa', name: 'Sanskrit' },
   { identifier: 'bh', name: 'Maithili' },
 ]
-
-export const OPENAI_API_KEY =
-  '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'

@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const INITIAL_STATE = {
+  lang: 'en',
+}
+
 const configSlice = createSlice({
   name: 'config',
-  initialState: {
-    lang: 'en',
-  },
+  initialState: INITIAL_STATE,
   reducers: {
     changeLanguage: (state, action) => {
       state.lang = action.payload

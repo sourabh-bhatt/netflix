@@ -1,13 +1,13 @@
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../utils/firebase'
-import { signOut, onAuthStateChanged } from 'firebase/auth'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { addUser, removeUser } from '../utils/userSlice'
-import { LOGO, SUPPORTED_LANGUAGES } from '../app.constants'
-import { toggleGptSearchView } from '../utils/gptSlice'
 
-import { changeLanguage } from '../utils/configSlice'
+import { LOGO, SUPPORTED_LANGUAGES } from '../app.constants'
+import { changeLanguage } from '../store/config.slice'
+import { toggleGptSearchView } from '../store/gpt.slice'
+import { addUser, removeUser } from '../store/user.slice'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -18,7 +18,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
-      .catch((error) => {
+      .catch(() => {
         navigate('/error')
       })
   }
@@ -42,14 +42,12 @@ const Header = () => {
       }
     })
 
-    return () => unsubscribe() // Unsubscribe onAuthStateChanged when component unmounts
-  }, [])
+    return () => unsubscribe()
+  }, [dispatch, navigate])
 
   const handleGPTSearchClick = () => {
     dispatch(toggleGptSearchView())
   }
-
-  // Language Selection
 
   const handleLangaugeChange = (e) => {
     dispatch(changeLanguage(e.target.value))
@@ -66,8 +64,6 @@ const Header = () => {
             src={user.photoURL}
             alt="User Photo"
           />
-
-          {/* Languages Selection */}
 
           {showGptSearch && (
             <div className="relative">

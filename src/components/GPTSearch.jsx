@@ -1,4 +1,4 @@
-import { LOGIN_BG, altText } from '../app.constants'
+import { LOGIN_BG, ALT_TEXT } from '../app.constants'
 import GPTMovieSuggestions from './GPTMovieSuggestions'
 import GPTSearchBar from './GPTSearchBar'
 
@@ -9,7 +9,7 @@ const GPTSearch = () => {
         <img
           className="h-screen w-full object-cover fixed"
           src={LOGIN_BG}
-          alt={altText}
+          alt={ALT_TEXT}
         />
       </div>
       <div>

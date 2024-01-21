@@ -1,5 +1,5 @@
+import { faCircleInfo, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 
 const VideoTitle = ({ title, overview }) => {
   return (

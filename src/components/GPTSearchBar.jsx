@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
-import lang from '../utils/languageConstants'
 import { useRef } from 'react'
-import openai from '../utils/openai'
-import { API_OPTIONS } from '../app.constants'
-import { addGptMovieResult } from '../utils/gptSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { TMDB_API_OPTIONS } from '../app.constants'
+import { addGptMovieResult } from '../store/gpt.slice'
+import lang from '../utils/languageConstants'
+import openai from '../utils/openai'
 
 const GPTSearchBar = () => {
   const dispatch = useDispatch()
@@ -18,7 +18,7 @@ const GPTSearchBar = () => {
       'https://api.themoviedb.org/3/search/movie?query=' +
         movie +
         '&include_adult=false&language=en-US&page=1',
-      API_OPTIONS
+      TMDB_API_OPTIONS
     )
 
     const json = await data.json()

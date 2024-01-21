@@ -1,15 +1,16 @@
-import { useRef, useState } from 'react'
-import { auth } from '../utils/firebase'
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   getAuth,
+  signInWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth'
-import { checkValidData } from '../utils/validate'
+import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addUser } from '../utils/userSlice'
-import { LOGIN_BG, USER_AVATAR, altText } from '../app.constants'
+import { auth } from '../utils/firebase'
+
+import { ALT_TEXT, LOGIN_BG, USER_AVATAR } from '../app.constants'
+import { addUser } from '../store/user.slice'
+import { checkValidData } from '../utils/validate'
 import Header from './Header'
 
 const Login = () => {
@@ -54,29 +55,21 @@ const Login = () => {
                 })
               )
             })
-            .catch((error) => {
-              setErrorMessage(error.message)
+            .catch(({ code, message }) => {
+              setErrorMessage(code + '-' + message)
             })
         })
-        .catch((error) => {
-          const errorCode = error.code
-          const errorMessage = error.message
-          setErrorMessage(errorCode + '-' + errorMessage)
+        .catch(({ code, message }) => {
+          setErrorMessage(code + '-' + message)
         })
     } else {
       signInWithEmailAndPassword(
         auth,
         email?.current?.value,
         password?.current?.value
-      )
-        .then((userCredential) => {
-          const user = userCredential.user
-        })
-        .catch((error) => {
-          const errorCode = error.code
-          const errorMessage = error.message
-          setErrorMessage(errorCode + '-' + errorMessage)
-        })
+      ).catch(({ code, message }) => {
+        setErrorMessage(code + '-' + message)
+      })
     }
   }
 
@@ -91,7 +84,7 @@ const Login = () => {
         <img
           className="h-screen w-full object-cover fixed"
           src={LOGIN_BG}
-          alt={altText}
+          alt={ALT_TEXT}
         />
       </div>
       <form
